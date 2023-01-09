@@ -10,14 +10,23 @@ namespace snake2
     {
         static void Main(string[] args)
             {
-            Point p1 = new Point(1, 3, '*');
-            p1.Draw();
+            Console.SetWindowSize(60, 25);
+            Console.SetBufferSize(60, 25);
+            Console.Title = "Snake";
+            Console.SetWindowPosition(10, 10);
 
-            HLines Line = new HLines(5, 10, 3,'+');
-            Line.DrawHLine();
+            HLines uLine = new HLines(0, 58, 0,'*');
+            HLines dLine = new HLines(0, 58, 24, '*');
+            VLines lLine = new VLines(0, 24, 0,'*');
+            VLines rLine = new VLines(0, 24, 58,'*');
 
+            uLine.DrawLine();
+            dLine.DrawLine();
+            lLine.DrawLine();
+            rLine.DrawLine();
 
-            Console.ReadLine();
+            Console.SetCursorPosition(4, 5);
+            Console.Read();
         }
 
         

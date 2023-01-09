@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace snake2
 {
-    internal class HLines
+    internal class HLines: Figure
     {
-        
 
         public HLines (int xLeft,int xRight, int y,char sym)
         {
@@ -17,14 +16,6 @@ namespace snake2
             {
                 Point p = new Point(x,y,sym);
                 PList.Add (p);
-            }
-        }
-
-        public void DrawHLine()
-        {
-            foreach (Point p in PList)
-            {
-                p.Draw();
             }
         }
     }
