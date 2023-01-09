@@ -40,11 +40,17 @@ namespace snake2
             {
                 y = y - offset;
             }
-            else
+            else if(direction==Direction.DOWN)
             {
                 y= y + offset;
             }
 
+        }
+
+        internal void Clear()
+        {
+            sym = ' ';
+            Draw();
         }
 
         public void Draw()
