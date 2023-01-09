@@ -13,7 +13,6 @@ namespace snake2
             Console.SetWindowSize(60, 25);
             Console.SetBufferSize(60, 25);
             Console.Title = "Snake";
-            Console.SetWindowPosition(10, 10);
 
             HLines uLine = new HLines(0, 58, 0,'*');
             HLines dLine = new HLines(0, 58, 24, '*');
@@ -25,7 +24,9 @@ namespace snake2
             lLine.DrawLine();
             rLine.DrawLine();
 
-            Console.SetCursorPosition(4, 5);
+            Point p = new Point(4, 5, '*');
+            Snake snake = new Snake(p, 4, Direction.RIGHT);
+            snake.DrawLine();
             Console.Read();
         }
 
