@@ -15,15 +15,8 @@ namespace snake2
             Console.SetBufferSize(80, 35);
             Console.Title = "Snake";
 
-            HLines uLine = new HLines(0, 78, 0,'*');
-            HLines dLine = new HLines(0, 78, 34, '*');
-            VLines lLine = new VLines(0, 34, 0,'*');
-            VLines rLine = new VLines(0,34, 78,'*');
-
-            uLine.DrawLine();
-            dLine.DrawLine();
-            lLine.DrawLine();
-            rLine.DrawLine();
+            Walls walls = new Walls(80, 35);
+            walls.Draw();
 
             Point p = new Point(4, 5, '*');
             Snake snake = new Snake(p, 4, Direction.RIGHT);
@@ -36,6 +29,11 @@ namespace snake2
 
             while(true)
             {
+                if ( walls.IsHit(snake) || snake.IsHitTail())
+                {
+                    break;
+                }
+
                 if(snake.Eat(food))
                 {
                     food = foodCreator.CreateFood();
@@ -56,12 +54,18 @@ namespace snake2
                 
                 
             }
+            GameOver();
 
 
 
-            
         }
-
+        static void GameOver()
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.SetCursorPosition(35, 18);
+            Console.WriteLine("Game over");
+            Console.Read();
+        }
         
     }
 }
