@@ -1,4 +1,4 @@
-﻿using System;
+﻿    using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,6 +19,21 @@ namespace snake2
                 p.Move(i, direction);
                 PList.Add(p);
             }    
+        }
+
+        internal bool Eat(Point food)
+        {
+            Point head = GetNewPoint();
+            if (head.IsHit(food))
+            {
+                food.sym = head.sym;
+                PList.Add(food);
+                return true;
+            }
+            else
+            {
+                return false;   
+            }
         }
 
         internal void Move()
