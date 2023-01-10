@@ -54,12 +54,18 @@ namespace snake2
                 
                 
             }
+            GameOver();
 
 
 
-            
         }
-
+        static void GameOver()
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.SetCursorPosition(35, 18);
+            Console.WriteLine("Game over");
+            Console.Read();
+        }
         
     }
 }
