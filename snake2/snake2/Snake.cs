@@ -54,7 +54,16 @@ namespace snake2
             NextPoint.Move(1, direction);
             return NextPoint;
         }
-
+        internal bool IsHitTail()
+        {
+            var head = PList.Last();
+            for(int i = 0; i < PList.Count - 2; i++)
+            {
+                if (head.IsHit(PList[i]))
+                    return true;
+            }
+            return false;
+        }
         public void UsedKey(ConsoleKey key)
         {
             if (key == ConsoleKey.LeftArrow)
